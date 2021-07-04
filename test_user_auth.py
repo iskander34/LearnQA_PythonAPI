@@ -65,3 +65,4 @@ class TestUserAuth:
         user_id_from_check_method = response2.json()["user_id"]
 
         assert user_id_from_check_method == 0, f"User is autorized with condition {condition}"
+        #
