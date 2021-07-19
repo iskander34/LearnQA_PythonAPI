@@ -6,8 +6,8 @@ class TestExample11:
         response = requests.get("https://playground.learnqa.ru/api/homework_cookie")
         print(dict(response.cookies))
 
-        expected_responce_cookie = {'HomeWork': 'hw_value'}
+        expected_response_cookie = {'HomeWork': 'hw_value'}
         actual_response_cookie = dict(response.cookies)
 
-        assert actual_response_cookie == expected_responce_cookie, "Actual cookie in response is not correct"
+        assert actual_response_cookie == expected_response_cookie, "Actual cookie in response is not correct"
 
