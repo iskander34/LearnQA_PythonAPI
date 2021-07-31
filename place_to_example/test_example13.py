@@ -19,7 +19,7 @@ class TestExample13:
         "Mobile", "No", "iPhone")
     ]
 
-    @pytest.mark.parametrize("user_agent", "expected_platform", "expected_browser", "expected_device", testdata)
+    @pytest.mark.parametrize("user_agent, expected_platform, expected_browser, expected_device", testdata)
     def test_check_user_agent(self, user_agent, expected_platform, expected_browser, expected_device):
         url_link = "https://playground.learnqa.ru/ajax/api/user_agent_check"
 
