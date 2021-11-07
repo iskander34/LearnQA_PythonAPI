@@ -24,13 +24,7 @@ class TestUserRegister(BaseCase):
         self.email = f"{base_part}{random_part}@{domain}"
 
     def test_create_user_successfuly(self):
-        data = {
-            'password': '123',
-            'username': 'learnqa',
-            'firstName': 'learnqa',
-            'lastName': 'learnqa',
-            'email': self.email
-        }
+        data = self.prepare_registration_data(None)
 
         response = requests.post("https://playground.learnqa.ru/api/user/", data=data)
 
@@ -39,13 +33,7 @@ class TestUserRegister(BaseCase):
 
     def test_create_user_with_existing_email(self):
         email = 'vinkotov@example.com'
-        data = {
-            'password': '123',
-            'username': 'learnqa',
-            'firstName': 'learnqa',
-            'lastName': 'learnqa',
-            'email': email
-        }
+        data = self.prepare_registration_data(email)
 
         response = requests.post("https://playground.learnqa.ru/api/user/", data=data)
 
@@ -139,4 +127,4 @@ class TestUserRegister(BaseCase):
 
         Assertions.assert_code_status(response, 400)
         assert response.content.decode(
-           "utf-8") == f"The value of 'username' field is too {defining_characteristic}", f"Unexpected response content {response.content}"
+            "utf-8") == f"The value of 'username' field is too {defining_characteristic}", f"Unexpected response content {response.content}"
