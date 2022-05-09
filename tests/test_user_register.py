@@ -30,6 +30,7 @@ class TestUserRegister(BaseCase):
         self.email = f"{base_part}{random_part}@{domain}"
 
     @allure.description("This test succesfully register user after authorize")
+    @allure.tag("Smoke")
     def test_create_user_successfuly(self):
         data = self.prepare_registration_data(None)
 
@@ -70,6 +71,7 @@ class TestUserRegister(BaseCase):
             "utf-8") == "Invalid email format", f"Unexpected response content {response.content}"
 
     @pytest.mark.parametrize('no_condition', exclude_params)
+    @allure.step
     @allure.description("This test checks register status w/o sending one of the necessary parameters")
     def test_create_user_with_out_part(self, no_condition):
         if no_condition == "password":
@@ -115,6 +117,7 @@ class TestUserRegister(BaseCase):
             "utf-8") == f"The following required params are missed: {no_condition}", f"Unexpected response content {response.content}"
 
     @pytest.mark.parametrize('name_params', name_params)
+    @allure.step
     @allure.description("This test checks register status with sending short/long simbol in name")
     def test_create_user_with_bad_name(self, name_params):
         if name_params == "one_symbol":

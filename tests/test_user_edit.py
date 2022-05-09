@@ -7,6 +7,8 @@ from lib.assertions import Assertions
 
 @allure.epic("Edit user cases")
 class TestUserEdit(BaseCase):
+    @allure.step
+    @allure.tag("Smoke")
     @allure.description("Edit user after created")
     def test_edit_just_created_user(self):
         # REGISTER

@@ -26,6 +26,7 @@ class TestUserAuth(BaseCase):
         self.user_id_from_auth_metod = self.get_json_value(response1, "user_id")
 
     @allure.description("This tests succesfully authorize user by email and password")
+    @allure.tag("Smoke")
     def test_user_auth(self):
 
         response2 = MyRequests.get(
