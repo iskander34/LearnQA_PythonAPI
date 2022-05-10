@@ -31,6 +31,7 @@ class TestUserRegister(BaseCase):
 
     @allure.description("This test succesfully register user after authorize")
     @allure.tag("Smoke")
+    @allure.severity(severity_level="Blocker")
     def test_create_user_successfuly(self):
         data = self.prepare_registration_data(None)
 

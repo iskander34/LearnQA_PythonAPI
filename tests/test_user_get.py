@@ -8,6 +8,7 @@ from lib.assertions import Assertions
 @allure.epic("Get user details cases")
 class TestUserGet(BaseCase):
     @allure.description("Attempt to get user data w/o authorization")
+    @allure.severity(severity_level="Critical")
     def test_get_user_details_not_auth(self):
         response = MyRequests.get("/user/2")
 

@@ -27,6 +27,7 @@ class TestUserAuth(BaseCase):
 
     @allure.description("This tests succesfully authorize user by email and password")
     @allure.tag("Smoke")
+    @allure.severity(severity_level="Blocker")
     def test_user_auth(self):
 
         response2 = MyRequests.get(

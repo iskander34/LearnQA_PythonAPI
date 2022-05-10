@@ -9,6 +9,7 @@ from lib.assertions import Assertions
 class TestUserEdit(BaseCase):
     @allure.step
     @allure.tag("Smoke")
+    @allure.severity(severity_level="Blocker")
     @allure.description("Edit user after created")
     def test_edit_just_created_user(self):
         # REGISTER
